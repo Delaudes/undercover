@@ -1,0 +1,103 @@
+<div class="min-h-screen bg-gray-900 text-gray-100">
+  <div class="max-w-2xl mx-auto px-4 py-8 space-y-8">
+    <!-- Titre -->
+    <header class="text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-100">
+        {{ viewModel.title }}
+      </h1>
+    </header>
+
+    <!-- Règles du jeu -->
+    <section class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
+            description
+          </span>
+          <span class="text-gray-300 text-base">{{ viewModel.gameRules[0] }}</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
+            person_search
+          </span>
+          <span class="text-gray-300 text-base">{{ viewModel.gameRules[1] }}</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
+            chat
+          </span>
+          <span class="text-gray-300 text-base">{{ viewModel.gameRules[2] }}</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
+            how_to_vote
+          </span>
+          <span class="text-gray-300 text-base">{{ viewModel.gameRules[3] }}</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
+            refresh
+          </span>
+          <span class="text-gray-300 text-base">{{ viewModel.gameRules[4] }}</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
+            emoji_events
+          </span>
+          <span class="text-gray-300 text-base">{{ viewModel.gameRules[5] }}</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Sélection du nombre de joueurs -->
+    <section class="bg-gray-800 rounded-xl p-6 border border-gray-700 space-y-4">
+      <div class="flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-emerald-500 text-xl">group</span>
+        <label class="block text-sm font-medium text-gray-300">
+          {{ viewModel.numberOfPlayersLabel }}
+        </label>
+      </div>
+
+      <div class="flex items-center justify-center gap-4">
+        <!-- Bouton supprimer -->
+        <button
+          (click)="homeController.removePlayer()"
+          [disabled]="!viewModel.canRemovePlayer"
+          class="w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          type="button"
+        >
+          <span class="material-symbols-outlined text-2xl">remove</span>
+        </button>
+
+        <!-- Nombre de joueurs -->
+        <div
+          class="w-20 h-20 flex items-center justify-center bg-gray-700 rounded-lg border-2 border-emerald-500"
+        >
+          <span class="text-3xl font-bold text-emerald-400">
+            {{ viewModel.numberOfPlayers }}
+          </span>
+        </div>
+
+        <!-- Bouton ajouter -->
+        <button
+          (click)="homeController.addPlayer()"
+          [disabled]="!viewModel.canAddPlayer"
+          class="w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          type="button"
+        >
+          <span class="material-symbols-outlined text-2xl">add</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Bouton jouer -->
+    <button
+      (click)="homeController.navigateToGame()"
+      class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg flex items-center justify-center gap-2"
+      type="button"
+    >
+      <span class="material-symbols-outlined text-2xl">play_arrow</span>
+      <span>{{ viewModel.playButtonText }}</span>
+    </button>
+  </div>
+</div>
