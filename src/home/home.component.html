@@ -7,53 +7,13 @@
       </h1>
     </header>
 
-    <!-- Règles du jeu -->
-    <section class="bg-gray-800 rounded-xl p-6 border border-gray-700">
-      <ul class="space-y-3">
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
-            description
-          </span>
-          <span class="text-gray-300 text-base">{{ viewModel.gameRules[0] }}</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
-            person_search
-          </span>
-          <span class="text-gray-300 text-base">{{ viewModel.gameRules[1] }}</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
-            chat
-          </span>
-          <span class="text-gray-300 text-base">{{ viewModel.gameRules[2] }}</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
-            how_to_vote
-          </span>
-          <span class="text-gray-300 text-base">{{ viewModel.gameRules[3] }}</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
-            refresh
-          </span>
-          <span class="text-gray-300 text-base">{{ viewModel.gameRules[4] }}</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-emerald-500 text-xl mt-0.5 flex-shrink-0">
-            emoji_events
-          </span>
-          <span class="text-gray-300 text-base">{{ viewModel.gameRules[5] }}</span>
-        </li>
-      </ul>
-    </section>
-
     <!-- Sélection du nombre de joueurs -->
     <section class="bg-gray-800 rounded-xl p-6 border border-gray-700 space-y-4">
       <div class="flex items-center justify-center gap-2">
-        <span class="material-symbols-outlined text-emerald-500 text-xl">group</span>
-        <label class="block text-sm font-medium text-gray-300">
+        <span class="material-symbols-outlined text-emerald-500 text-xl" aria-hidden="true"
+          >group</span
+        >
+        <label class="text-sm font-medium text-gray-300">
           {{ viewModel.numberOfPlayersLabel }}
         </label>
       </div>
@@ -65,15 +25,18 @@
           [disabled]="!viewModel.canRemovePlayer"
           class="w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           type="button"
+          aria-label="Retirer un joueur"
         >
-          <span class="material-symbols-outlined text-2xl">remove</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">remove</span>
         </button>
 
         <!-- Nombre de joueurs -->
         <div
           class="w-20 h-20 flex items-center justify-center bg-gray-700 rounded-lg border-2 border-emerald-500"
+          role="status"
+          aria-live="polite"
         >
-          <span class="text-3xl font-bold text-emerald-400">
+          <span class="text-5xl font-bold text-emerald-400">
             {{ viewModel.numberOfPlayers }}
           </span>
         </div>
@@ -84,8 +47,9 @@
           [disabled]="!viewModel.canAddPlayer"
           class="w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           type="button"
+          aria-label="Ajouter un joueur"
         >
-          <span class="material-symbols-outlined text-2xl">add</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">add</span>
         </button>
       </div>
     </section>
@@ -96,8 +60,59 @@
       class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg flex items-center justify-center gap-2"
       type="button"
     >
-      <span class="material-symbols-outlined text-2xl">play_arrow</span>
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true">play_arrow</span>
       <span>{{ viewModel.playButtonText }}</span>
     </button>
+
+    <!-- Règles du jeu -->
+    <section class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+      <ul class="space-y-2" role="list">
+        <li class="flex items-start gap-2">
+          <span
+            class="material-symbols-outlined text-emerald-500 text-lg flex-shrink-0"
+            aria-hidden="true"
+          >
+            visibility
+          </span>
+          <span class="text-gray-300 text-sm">{{ viewModel.gameRules[0] }}</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span
+            class="material-symbols-outlined text-emerald-500 text-lg flex-shrink-0"
+            aria-hidden="true"
+          >
+            flag
+          </span>
+          <span class="text-gray-300 text-sm">{{ viewModel.gameRules[1] }}</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span
+            class="material-symbols-outlined text-emerald-500 text-lg flex-shrink-0"
+            aria-hidden="true"
+          >
+            chat
+          </span>
+          <span class="text-gray-300 text-sm">{{ viewModel.gameRules[2] }}</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span
+            class="material-symbols-outlined text-emerald-500 text-lg flex-shrink-0"
+            aria-hidden="true"
+          >
+            how_to_vote
+          </span>
+          <span class="text-gray-300 text-sm">{{ viewModel.gameRules[3] }}</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span
+            class="material-symbols-outlined text-emerald-500 text-lg flex-shrink-0"
+            aria-hidden="true"
+          >
+            emoji_events
+          </span>
+          <span class="text-gray-300 text-sm">{{ viewModel.gameRules[4] }}</span>
+        </li>
+      </ul>
+    </section>
   </div>
 </div>

@@ -7,12 +7,11 @@ export class HomeView {
         this.viewModel.set({
             title: "Undercover",
             gameRules: [
-                "Chaque joueur reçoit le même mot secret.",
-                "Certains joueurs sont des 'Undercovers' avec un mot différent.",
-                "Les joueurs disent tour à tour un mot lié à leur mot secret.",
-                "Après chaque tour, les joueurs votent pour éliminer un suspect.",
-                "Le jeu continue jusqu'à ce que tous les Undercovers soient éliminés.",
-                "Si un Undercover reste à la fin, il gagne la partie.",
+                "La majorité des joueurs reçoit un mot secret (ex: Chat). Les Undercovers reçoivent un mot similaire mais différent (ex: Tigre).",
+                "Objectif Civils : Identifier et éliminer tous les Undercovers. Objectif Undercovers : Rester cachés jusqu'à la fin.",
+                "Chaque tour, tous les joueurs décrivent leur mot avec UN SEUL autre mot, sans répéter ce qui a déjà été dit.",
+                "Après que tous aient parlé, discutez puis votez pour éliminer le joueur le plus suspect. Le joueur éliminé révèle son rôle.",
+                "Le jeu continue jusqu'à ce que tous les Undercovers soient éliminés (victoire des Civils) ou qu'il reste autant d'Undercovers que de Civils (victoire des Undercovers).",
             ],
             playButtonText: "Jouer",
             numberOfPlayersLabel: "Nombre de joueurs",
