@@ -5,7 +5,7 @@
       <!-- Bouton retour accueil -->
       <button
         (click)="gameController.navigateToHome()"
-        class="w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200"
+        class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200"
         type="button"
         aria-label="Retour à l'accueil"
       >
@@ -94,7 +94,7 @@
       <!-- Bouton reset -->
       <button
         (click)="gameController.initGame()"
-        class="w-12 h-12 self-center flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200"
+        class="w-14 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-gray-100 rounded-lg transition-colors duration-200"
         type="button"
         aria-label="Réinitialiser la partie"
       >
@@ -128,7 +128,7 @@
       <!-- Bouton "Qui commence ?" -->
       @if (viewModel.isRevealStarterInstructionsButtonDisplayed) {
       <button
-        class="flex-1 bg-gray-700 hover:bg-gray-600 text-gray-100 font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg flex items-center justify-center gap-2"
+        class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-100 font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg flex items-center justify-center gap-2"
         type="button"
         (click)="gameController.revealStarterInstructions()"
       >

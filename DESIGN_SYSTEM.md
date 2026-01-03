@@ -189,7 +189,7 @@
 
 ```html
 <div class="px-6 py-3 rounded-lg font-semibold text-lg flex items-center gap-2 bg-gray-700">
-  <span class="material-symbols-outlined text-2xl" aria-hidden="true"> theater_comedy </span>
+  <span class="material-symbols-outlined text-2xl" aria-hidden="true"> domino_mask </span>
   <span>Undercover</span>
 </div>
 
@@ -238,5 +238,20 @@
 
 ```html
 <div class="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
-  <div class="flex-1 max-w-2xl mx-auto px-4 py-8 space-y-8 w
+  <div class="flex-1 max-w-2xl mx-auto px-4 py-8 space-y-8 w-full pb-24">
+    <!-- Contenu -->
+  </div>
+  <!-- Footer fixe -->
+</div>
 ```
+
+## Animations
+
+- **Transitions**: `transition-colors duration-200` - Pour les changements de couleur (hover)
+- **Transform**: `transition-transform duration-700` - Pour les animations de cartes flip
+
+## Accessibilité
+
+- Utiliser `aria-label` pour les boutons icône
+- Utiliser `aria-hidden="true"` pour les icônes décoratives
+- Utiliser `aria-live="polite"` pour les zones de contenu dynamique
