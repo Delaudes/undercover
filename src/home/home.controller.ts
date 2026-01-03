@@ -5,7 +5,7 @@ import { HomeService } from "./home.service";
 export interface IHomeController {
     addPlayer(): void;
     removePlayer(): void;
-    navigateToGame(): void;
+    navigateToGame(numberOfPlayers: number): void;
 }
 
 export class HomeController implements IHomeController {
@@ -19,8 +19,8 @@ export class HomeController implements IHomeController {
         this.homeService.removePlayer();
     }
 
-    navigateToGame(): void {
-        this.routerWrapper.navigateTo(Path.Game);
+    navigateToGame(numberOfPlayers: number): void {
+        this.routerWrapper.navigate(Path.Game.replace(':numberOfPlayers', numberOfPlayers.toString()));
     }
 }
 

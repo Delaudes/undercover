@@ -5,6 +5,8 @@ export class GameService {
     constructor(private readonly gamePresenter: GamePresenter) { }
 
     initGame(numberOfPlayers: number): void {
+        numberOfPlayers = numberOfPlayers < 3 ? 3 : numberOfPlayers;
+        numberOfPlayers = numberOfPlayers > 20 ? 20 : numberOfPlayers;
         const words = this.pickWords();
         const starterInstructions = this.pickStarterInstructions();
         const numberOfUndercovers = Math.floor(numberOfPlayers / 3)

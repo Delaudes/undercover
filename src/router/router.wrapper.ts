@@ -1,5 +1,6 @@
 
 export interface RouterWrapper {
-    navigateTo(path: string): void;
+    navigate(path: string): void;
+    getParamValue(paramName: string): string | undefined
 }
 

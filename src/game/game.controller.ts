@@ -19,11 +19,12 @@ export class GameController implements IGameController {
     }
 
     initGame(): void {
-        this.gameService.initGame(5);
+        const numberOfPlayers = Number(this.routerWrapper.getParamValue('numberOfPlayers')) ?? 4;
+        this.gameService.initGame(numberOfPlayers);
     }
 
     navigateToHome(): void {
-        this.routerWrapper.navigateTo(Path.Home);
+        this.routerWrapper.navigate(Path.Home);
     }
 
     revealWord(): void {

@@ -4,7 +4,7 @@ import { HomeComponent } from '../home/home.component';
 
 export enum Path {
     Home = '',
-    Game = 'game',
+    Game = 'game/:numberOfPlayers',
 }
 
 
