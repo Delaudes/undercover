@@ -6,14 +6,16 @@ export class GameView {
         this.viewModel.set({
             title: "Undercover",
             revealWordButtonText: "Voir mon mot",
+            goToNextButtonText: "Suivant",
+            revealStarterInstructionsButtonText: "Qui commence ?",
+            starterInstructions: "Celui qui commence est celui qui a le téléphone le plus récent.",
+
             isRevealWordButtonDisplayed: true,
             isWordDisplayed: false,
-            goToNextButtonText: "Suivant",
             isGoToNextButtonDisplayed: false,
-            revealStarterInstructionsButtonText: "Qui commence ?",
             isRevealStarterInstructionsButtonDisplayed: false,
-            starterInstructions: "Celui qui commence est celui qui a le téléphone le plus récent.",
             isStarterInstructionsDisplayed: false,
+
             players: [{
                 position: "1/3",
                 isUndercover: false,

@@ -53,7 +53,8 @@ export class GamePresenter {
 
     presentStarterInstructions() {
         this.gameView.update({
-            isStarterInstructionsDisplayed: true
+            isStarterInstructionsDisplayed: true,
+            isWordDisplayed: false,
         });
     }
 }

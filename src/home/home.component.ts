@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { HOME_CONTROLLER_TOKEN, HOME_PROVIDER } from './home.provider';
+import { HOME_CONTROLLER_TOKEN } from './home.provider';
 import { HomeView } from './home.view';
 
 @Component({
@@ -7,7 +7,6 @@ import { HomeView } from './home.view';
   imports: [],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [HOME_PROVIDER]
 })
 export class HomeComponent {
   private readonly homeView = inject(HomeView);
