@@ -18,5 +18,11 @@ export interface GameViewModel {
 export interface PlayerViewModel {
     position: string;
     isUndercover: boolean;
+    role: RoleViewModel;
     word: string;
+}
+
+export enum RoleViewModel {
+    Undercover = "Undercover",
+    Civil = "Civil"
 }

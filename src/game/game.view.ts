@@ -1,5 +1,5 @@
 import { SignalWrapper } from "../signal/signal.wrapper";
-import { GameViewModel } from "./models/game.view.model";
+import { GameViewModel, RoleViewModel } from "./models/game.view.model";
 
 export class GameView {
     constructor(public readonly viewModel: SignalWrapper<GameViewModel>) {
@@ -19,19 +19,23 @@ export class GameView {
             players: [{
                 position: "1/3",
                 isUndercover: false,
+                role: RoleViewModel.Civil,
                 word: "Undercover"
             }, {
                 position: "2/3",
                 isUndercover: false,
+                role: RoleViewModel.Civil,
                 word: "Undercover"
             }, {
                 position: "3/3",
                 isUndercover: true,
+                role: RoleViewModel.Undercover,
                 word: "Civil"
             }],
             currentPlayer: {
                 position: "1/3",
                 isUndercover: false,
+                role: RoleViewModel.Civil,
                 word: "Undercover"
             }
         });

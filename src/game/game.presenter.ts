@@ -1,5 +1,6 @@
 import { GameView } from "./game.view";
 import { PlayersListDomainModel } from "./models/game.domain.model";
+import { RoleViewModel } from "./models/game.view.model";
 
 export class GamePresenter {
 
@@ -9,11 +10,13 @@ export class GamePresenter {
         const playerViewModels = playersList.players.map((player, index) => ({
             position: `${index + 1}/${playersList.players.length}`,
             isUndercover: player.isUndercover,
+            role: player.isUndercover ? RoleViewModel.Undercover : RoleViewModel.Civil,
             word: player.word
         }));
         this.gameView.update({
             players: playerViewModels,
             currentPlayer: playerViewModels[0],
+            starterInstructions: playersList.starterInstructions,
             isRevealWordButtonDisplayed: true,
             isWordDisplayed: false,
             isGoToNextButtonDisplayed: false,

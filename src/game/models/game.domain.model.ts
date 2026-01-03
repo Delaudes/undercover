@@ -3,7 +3,7 @@ export class WordsDomainModel {
 }
 
 export class PlayersListDomainModel {
-    constructor(readonly players: PlayerDomainModel[]) { }
+    constructor(readonly players: PlayerDomainModel[], readonly starterInstructions: string) { }
 }
 
 export class PlayerDomainModel {
@@ -64,4 +64,17 @@ export const WordsCollectionDomainModel = [
     new WordsDomainModel("Ski", "Surf"),
     new WordsDomainModel("Cascade", "Geyser"),
     new WordsDomainModel("Chat", "Perroquet"),
+]
+
+export const StarterInstructionsCollectionDomainModel = [
+    "Celui qui commence est celui qui a le téléphone le plus récent.",
+    "Celui qui commence est celui qui a fêté son anniversaire le plus récemment.",
+    "Celui qui commence est celui qui habite le plus près d'ici.",
+    "Celui qui commence est celui qui a les yeux de la couleur la plus claire.",
+    "Celui qui commence est celui qui a lu le dernier un livre.",
+    "Celui qui commence est celui qui a le plus de frères et sœurs.",
+    "Celui qui commence est celui qui a le prénom le plus court.",
+    "Celui qui commence est celui qui a voyagé le plus loin.",
+    "Celui qui commence est celui qui a le plus de chaussures.",
+    "Celui qui commence est celui qui a le plus d'animaux de compagnie.",
 ]

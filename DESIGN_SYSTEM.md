@@ -9,10 +9,16 @@
 - **Surface variant**: `bg-gray-700` (#374151)
 - **Primary**: `bg-emerald-600` (#059669)
 - **Primary hover**: `bg-emerald-500` (#10B981)
+- **Primary dark**: `bg-emerald-700` (#047857)
 - **Text primary**: `text-gray-100` (#F3F4F6)
 - **Text secondary**: `text-gray-400` (#9CA3AF)
 - **Border**: `border-gray-700` (#374151)
 - **Accent**: `text-emerald-500` (#10B981)
+
+### Couleurs de rôle
+
+- **Undercover**: `bg-gray-700` (#374151) - Pour les joueurs Undercover (discret)
+- **Civil**: `bg-emerald-700` (#047857) - Pour les joueurs Civil (majoritaire)
 
 ### États
 
@@ -165,6 +171,9 @@
   - `how_to_vote` - Vote/élimination
   - `emoji_events` - Trophée/victoire
 - **Joueurs**: `group` - Groupe de personnes
+- **Rôles**:
+  - `domino_mask` - Undercover (masque/rôle caché)
+  - `groups` - Civil (groupe majoritaire)
 - **Actions**:
   - `play_arrow` - Jouer/démarrer
   - `add` - Ajouter
@@ -174,6 +183,21 @@
   - `help` - Aide/question
   - `home` - Accueil/retour
   - `info` - Information
+  - `refresh` - Réinitialiser
+
+### Badge de rôle
+
+```html
+<div class="px-6 py-3 rounded-lg font-semibold text-lg flex items-center gap-2 bg-gray-700">
+  <span class="material-symbols-outlined text-2xl" aria-hidden="true"> theater_comedy </span>
+  <span>Undercover</span>
+</div>
+
+<div class="px-6 py-3 rounded-lg font-semibold text-lg flex items-center gap-2 bg-emerald-700">
+  <span class="material-symbols-outlined text-2xl" aria-hidden="true"> groups </span>
+  <span>Civil</span>
+</div>
+```
 
 ## Layout
 
