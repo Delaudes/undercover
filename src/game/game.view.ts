@@ -8,7 +8,7 @@ export class GameView {
             revealWordButtonText: "Voir mon mot",
             goToNextButtonText: "Suivant",
             revealStarterInstructionsButtonText: "Qui commence ?",
-            starterInstructions: "Celui qui commence est celui qui a le téléphone le plus récent.",
+            starterInstructions: "",
 
             isRevealWordButtonDisplayed: true,
             isWordDisplayed: false,
@@ -16,27 +16,12 @@ export class GameView {
             isRevealStarterInstructionsButtonDisplayed: false,
             isStarterInstructionsDisplayed: false,
 
-            players: [{
-                position: "1/3",
-                isUndercover: false,
-                role: RoleViewModel.Civil,
-                word: "Undercover"
-            }, {
-                position: "2/3",
-                isUndercover: false,
-                role: RoleViewModel.Civil,
-                word: "Undercover"
-            }, {
-                position: "3/3",
-                isUndercover: true,
-                role: RoleViewModel.Undercover,
-                word: "Civil"
-            }],
+            players: [],
             currentPlayer: {
-                position: "1/3",
+                position: "",
                 isUndercover: false,
                 role: RoleViewModel.Civil,
-                word: "Undercover"
+                word: ""
             }
         });
     }

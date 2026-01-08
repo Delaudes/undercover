@@ -1,4 +1,4 @@
-export interface GameViewModel {
+export type GameViewModel = {
     title: string;
     revealWordButtonText: string;
     goToNextButtonText: string;
@@ -15,7 +15,7 @@ export interface GameViewModel {
     currentPlayer: PlayerViewModel;
 }
 
-export interface PlayerViewModel {
+export type PlayerViewModel = {
     position: string;
     isUndercover: boolean;
     role: RoleViewModel;

@@ -19,7 +19,9 @@ export class GameController implements IGameController {
     }
 
     initGame(): void {
-        const numberOfPlayers = Number(this.routerWrapper.getParamValue('numberOfPlayers')) ?? 4;
+        const numberOfPlayers = this.routerWrapper.getParamValue('numberOfPlayers')
+            ? Number(this.routerWrapper.getParamValue('numberOfPlayers'))
+            : 4;
         this.gameService.initGame(numberOfPlayers);
     }
 

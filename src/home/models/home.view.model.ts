@@ -1,4 +1,4 @@
-export interface HomeViewModel {
+export type HomeViewModel = {
     title: string;
     gameRules: string[];
     playButtonText: string;
