@@ -54,15 +54,49 @@
       </div>
     </section>
 
-    <!-- Bouton jouer -->
-    <button
-      (click)="homeController.navigateToGame(viewModel.numberOfPlayers)"
-      class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg flex items-center justify-center gap-2"
-      type="button"
-    >
-      <span class="material-symbols-outlined text-2xl" aria-hidden="true">play_arrow</span>
-      <span>{{ viewModel.playButtonText }}</span>
-    </button>
+    <!-- Boutons de lancement -->
+    <div class="space-y-3">
+      <!-- Bouton jouer en local -->
+      <button
+        (click)="homeController.navigateToGame(viewModel.numberOfPlayers)"
+        class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg flex items-center justify-center gap-2"
+        type="button"
+      >
+        <span class="material-symbols-outlined text-2xl" aria-hidden="true">play_arrow</span>
+        <span>{{ viewModel.playButtonText }}</span>
+      </button>
+
+      @if (viewModel.isLoadingOnlineGame) {
+      <!-- Loader -->
+      <div
+        class="w-full bg-gray-800 border border-gray-700 rounded-lg py-4 px-6 flex items-center justify-center gap-3"
+      >
+        <div
+          class="w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin"
+        ></div>
+      </div>
+      } @else {
+      <!-- Bouton jouer en ligne -->
+      <button
+        (click)="homeController.createOnlineGame(viewModel.numberOfPlayers)"
+        class="w-full bg-gray-700 hover:bg-gray-600 text-gray-100 font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg flex items-center justify-center gap-2"
+        type="button"
+      >
+        <span class="material-symbols-outlined text-2xl" aria-hidden="true">language</span>
+        <span>Jouer en ligne</span>
+      </button>
+      }
+    </div>
+
+    <!-- Message d'erreur -->
+    @if (viewModel.isErrorOnlineGame) {
+    <div class="bg-red-900/20 border border-red-700 rounded-lg p-4 flex items-start gap-3">
+      <span class="material-symbols-outlined text-red-500 text-2xl flex-shrink-0" aria-hidden="true"
+        >error</span
+      >
+      <p class="text-red-300 text-sm">{{ viewModel.onlineGameErrorMessage }}</p>
+    </div>
+    }
 
     <!-- Règles du jeu -->
     <section class="bg-gray-800 rounded-xl p-6 border border-gray-700">

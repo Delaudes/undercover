@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ONLINE_GAME_CONTROLLER_TOKEN, ONLINE_GAME_PROVIDER } from './online-game.provider';
+import { ONLINE_GAME_CONTROLLER_TOKEN } from './online-game.provider';
 import { OnlineGameView } from './online-game.view';
 
 @Component({
@@ -7,7 +7,6 @@ import { OnlineGameView } from './online-game.view';
     imports: [],
     templateUrl: './online-game.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [ONLINE_GAME_PROVIDER]
 })
 export class OnlineGameComponent {
     private readonly onlineGameView = inject(OnlineGameView);

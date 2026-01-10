@@ -81,6 +81,30 @@
 </button>
 ```
 
+### Loader
+
+```html
+<div
+  class="w-full bg-gray-800 border border-gray-700 rounded-lg py-4 px-6 flex items-center justify-center gap-3"
+>
+  <div
+    class="w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin"
+  ></div>
+  <span class="text-gray-300 text-lg">Message de chargement...</span>
+</div>
+```
+
+### Messages d'erreur
+
+```html
+<div class="bg-red-900/20 border border-red-700 rounded-lg p-4 flex items-start gap-3">
+  <span class="material-symbols-outlined text-red-500 text-2xl flex-shrink-0" aria-hidden="true"
+    >error</span
+  >
+  <p class="text-red-300 text-sm">Message d'erreur détaillé</p>
+</div>
+```
+
 ### Cartes
 
 ```html
@@ -93,18 +117,25 @@
 <div class="[perspective:1000px]">
   <div class="relative w-full aspect-[3/4] max-w-md mx-auto">
     <div
-      class="w-full h-full transition-transform duration-700 [transform-style:preserve-3d]"
+      class="w-full h-full [transform-style:preserve-3d]"
+      [class.transition-transform]="isFlipped"
+      [class.duration-700]="isFlipped"
       [class.[transform:rotateY(180deg)]]="isFlipped"
     >
       <!-- Face avant (verso) -->
       <div
-        class="absolute inset-0 [backface-visibility:hidden] bg-gray-800 rounded-xl border border-gray-700 flex flex-col items-center justify-center p-6"
+        class="absolute inset-0 [backface-visibility:hidden] bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center p-6"
       >
-        <!-- Contenu verso -->
+        <!-- Badge numéro de joueur adaptatif -->
+        <div
+          class="min-w-24 min-h-24 px-6 py-4 flex items-center justify-center bg-gray-700 rounded-xl border-2 border-emerald-500"
+        >
+          <p class="text-emerald-400 text-5xl font-bold whitespace-nowrap">Position</p>
+        </div>
       </div>
       <!-- Face arrière (recto) -->
       <div
-        class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-emerald-600 rounded-xl flex flex-col items-center justify-center p-6"
+        class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-emerald-600 rounded-xl flex flex-col items-center justify-center p-6 gap-6"
       >
         <!-- Contenu recto -->
       </div>
@@ -176,6 +207,8 @@
   - `groups` - Civil (groupe majoritaire)
 - **Actions**:
   - `play_arrow` - Jouer/démarrer
+  - `language` - En ligne/web
+  - `error` - Erreur
   - `add` - Ajouter
   - `remove` - Supprimer
   - `visibility` - Voir/révéler
@@ -227,10 +260,18 @@
 ```html
 <div class="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
   <!-- Header fixe -->
-  <div class="flex-1 max-w-2xl mx-auto px-4 py-8 space-y-8 w-full pt-24 pb-24">
+  <header class="fixed top-0 left-0 right-0 bg-gray-900 border-b border-gray-800 z-10">
+    <!-- Contenu header -->
+  </header>
+
+  <main class="flex-1 max-w-2xl mx-auto px-4 space-y-8 w-full pt-24 pb-24">
     <!-- Contenu -->
-  </div>
+  </main>
+
   <!-- Footer fixe -->
+  <footer class="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 p-4">
+    <!-- Contenu footer -->
+  </footer>
 </div>
 ```
 
@@ -242,6 +283,9 @@
     <!-- Contenu -->
   </div>
   <!-- Footer fixe -->
+  <footer class="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 p-4">
+    <!-- Contenu footer -->
+  </footer>
 </div>
 ```
 

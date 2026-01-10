@@ -1,5 +1,6 @@
 
 import { InjectionToken } from "@angular/core";
+import { ONLINE_GAME_GATEWAY_TOKEN } from "../online-game/online-game.provider";
 import { ROUTER_TOKEN } from "../router/router.provider";
 import { AngularSignalAdapter } from "../signal/angular-signal.adapter";
 import { HomeController, IHomeController } from "./home.controller";
@@ -18,7 +19,7 @@ export const HOME_PROVIDER = [
     },
     {
         provide: HomeService,
-        deps: [HomePresenter]
+        deps: [HomePresenter, ONLINE_GAME_GATEWAY_TOKEN]
     },
     {
         provide: HomePresenter,

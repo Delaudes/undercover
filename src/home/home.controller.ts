@@ -28,7 +28,7 @@ export class HomeController implements IHomeController {
         const idGame = crypto.randomUUID();
         const success = await this.homeService.createOnlineGame(idGame, numberOfPlayers);
         if (success) {
-            this.routerGateway.navigate(Path.OnlineGame.replace(':idGame', idGame).replace(':numberOfPlayers', numberOfPlayers.toString()));
+            this.routerGateway.navigate(Path.OnlineGame.replace(':idGame', idGame));
         }
     }
 }

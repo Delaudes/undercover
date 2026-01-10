@@ -10,12 +10,7 @@ import { OnlineGameService } from "./online-game.service";
 import { OnlineGameView } from "./online-game.view";
 
 export const ONLINE_GAME_CONTROLLER_TOKEN = new InjectionToken<IOnlineGameController>('ONLINE_GAME_CONTROLLER_TOKEN');
-export const ONLINE_GAME_GATEWAY_TOKEN = new InjectionToken<OnlineGameGateway>('ONLINE_GAME_GATEWAY_TOKEN', {
-    providedIn: 'root',
-    factory: () => {
-        return new InMemoryOnlineGameAdapter();
-    }
-});
+export const ONLINE_GAME_GATEWAY_TOKEN = new InjectionToken<OnlineGameGateway>('ONLINE_GAME_GATEWAY_TOKEN');
 
 export const ONLINE_GAME_PROVIDER = [
     {
@@ -26,6 +21,10 @@ export const ONLINE_GAME_PROVIDER = [
     {
         provide: OnlineGameService,
         deps: [OnlineGamePresenter, ONLINE_GAME_GATEWAY_TOKEN]
+    },
+    {
+        provide: ONLINE_GAME_GATEWAY_TOKEN,
+        useClass: InMemoryOnlineGameAdapter
     },
     {
         provide: OnlineGamePresenter,
