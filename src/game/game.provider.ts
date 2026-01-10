@@ -1,6 +1,6 @@
 import { InjectionToken } from "@angular/core";
 import { ROUTER_TOKEN } from "../router/router.provider";
-import { AngularSignalWrapper } from "../signal/angular-signal.wrapper";
+import { AngularSignalAdapter } from "../signal/angular-signal.adapter";
 import { InMemoryGameAdapter } from "./adapters/in-memory.game.adapter";
 import { GameController, IGameController } from "./game.controller";
 import { GameGateway } from "./game.gateway";
@@ -32,6 +32,6 @@ export const GAME_PROVIDER = [
     },
     {
         provide: GameView,
-        useFactory: () => new GameView(new AngularSignalWrapper<GameViewModel>())
+        useFactory: () => new GameView(new AngularSignalAdapter<GameViewModel>())
     }
 ];

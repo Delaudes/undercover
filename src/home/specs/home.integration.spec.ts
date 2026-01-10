@@ -1,5 +1,5 @@
-import { FakeRouterWrapper } from "../../router/fake-router.wrapper";
-import { FakeSignalWrapper } from "../../signal/fake-signal.wrapper";
+import { FakeRouterAdapter } from "../../router/fake-router.adapter";
+import { FakeSignalAdapter } from "../../signal/fake-signal.adapter";
 import { HomeController } from "../home.controller";
 import { HomePresenter } from "../home.presenter";
 import { HomeService } from "../home.service";
@@ -9,16 +9,16 @@ import { HomeViewModel } from "../models/home.view.model";
 describe('HomeIntegration', () => {
     let homeController: HomeController;
     let homeService: HomeService
-    let fakeRouterWrapper: FakeRouterWrapper
+    let fakeRouterAdapter: FakeRouterAdapter
     let homePresenter: HomePresenter;
     let homeView: HomeView;
 
     beforeEach(() => {
-        homeView = new HomeView(new FakeSignalWrapper<HomeViewModel>());
+        homeView = new HomeView(new FakeSignalAdapter<HomeViewModel>());
         homePresenter = new HomePresenter(homeView);
-        fakeRouterWrapper = new FakeRouterWrapper();
+        fakeRouterAdapter = new FakeRouterAdapter();
         homeService = new HomeService(homePresenter);
-        homeController = new HomeController(homeService, fakeRouterWrapper);
+        homeController = new HomeController(homeService, fakeRouterAdapter);
     });
 
     describe('add player', () => {
@@ -85,11 +85,11 @@ describe('HomeIntegration', () => {
         it('should navigate to game with number of players', () => {
             const numberOfPlayers = 6;
 
-            expect(fakeRouterWrapper.lastNavigatedPath).toBeUndefined();
+            expect(fakeRouterAdapter.lastNavigatedPath).toBeUndefined();
 
             homeController.navigateToGame(numberOfPlayers);
 
-            expect(fakeRouterWrapper.lastNavigatedPath).toEqual('game/' + numberOfPlayers);
+            expect(fakeRouterAdapter.lastNavigatedPath).toEqual('game/' + numberOfPlayers);
         });
     });
 });

@@ -1,7 +1,7 @@
 import { signal } from "@angular/core";
-import { SignalWrapper } from "./signal.wrapper";
+import { SignalGateway } from "./signal.gateway";
 
-export class AngularSignalWrapper<T> implements SignalWrapper<T> {
+export class AngularSignalAdapter<T> implements SignalGateway<T> {
     private _signal = signal<T>(undefined as T)
 
     get(): T {

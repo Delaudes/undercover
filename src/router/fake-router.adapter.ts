@@ -1,6 +1,6 @@
-import { RouterWrapper } from "./router.wrapper";
+import { RouterGateway } from "./router.gateway";
 
-export class FakeRouterWrapper implements RouterWrapper {
+export class FakeRouterAdapter implements RouterGateway {
     lastNavigatedPath?: string;
     params: Record<string, string> = {};
 

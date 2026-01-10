@@ -1,5 +1,5 @@
 import { Path } from "../app/app.routes";
-import { RouterWrapper } from "../router/router.wrapper";
+import { RouterGateway } from "../router/router.gateway";
 import { GameService } from "./game.service";
 
 export interface IGameController {
@@ -13,20 +13,20 @@ export interface IGameController {
 export class GameController implements IGameController {
     constructor(
         private readonly gameService: GameService,
-        private readonly routerWrapper: RouterWrapper
+        private readonly routerGateway: RouterGateway
     ) {
         this.initGame();
     }
 
     initGame(): void {
-        const numberOfPlayers = this.routerWrapper.getParamValue('numberOfPlayers')
-            ? Number(this.routerWrapper.getParamValue('numberOfPlayers'))
+        const numberOfPlayers = this.routerGateway.getParamValue('numberOfPlayers')
+            ? Number(this.routerGateway.getParamValue('numberOfPlayers'))
             : 4;
         this.gameService.initGame(numberOfPlayers);
     }
 
     navigateToHome(): void {
-        this.routerWrapper.navigate(Path.Home);
+        this.routerGateway.navigate(Path.Home);
     }
 
     revealWord(): void {

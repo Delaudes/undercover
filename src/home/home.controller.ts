@@ -1,5 +1,5 @@
 import { Path } from "../app/app.routes";
-import { RouterWrapper } from "../router/router.wrapper";
+import { RouterGateway } from "../router/router.gateway";
 import { HomeService } from "./home.service";
 
 export interface IHomeController {
@@ -9,7 +9,7 @@ export interface IHomeController {
 }
 
 export class HomeController implements IHomeController {
-    constructor(private readonly homeService: HomeService, private readonly routerWrapper: RouterWrapper) { }
+    constructor(private readonly homeService: HomeService, private readonly routerGateway: RouterGateway) { }
 
     addPlayer(): void {
         this.homeService.addPlayer();
@@ -20,7 +20,7 @@ export class HomeController implements IHomeController {
     }
 
     navigateToGame(numberOfPlayers: number): void {
-        this.routerWrapper.navigate(Path.Game.replace(':numberOfPlayers', numberOfPlayers.toString()));
+        this.routerGateway.navigate(Path.Game.replace(':numberOfPlayers', numberOfPlayers.toString()));
     }
 }
 

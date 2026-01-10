@@ -1,6 +1,6 @@
-import { SignalWrapper } from "./signal.wrapper";
+import { SignalGateway } from "./signal.gateway";
 
-export class FakeSignalWrapper<T> implements SignalWrapper<T> {
+export class FakeSignalAdapter<T> implements SignalGateway<T> {
     private value = undefined as T;
 
     get(): T {

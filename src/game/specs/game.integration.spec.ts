@@ -1,5 +1,5 @@
-import { FakeRouterWrapper } from "../../router/fake-router.wrapper";
-import { FakeSignalWrapper } from "../../signal/fake-signal.wrapper";
+import { FakeRouterAdapter } from "../../router/fake-router.adapter";
+import { FakeSignalAdapter } from "../../signal/fake-signal.adapter";
 import { FakeGameAdapter } from "../adapters/fake.game.adapter";
 import { GameController } from "../game.controller";
 import { GamePresenter } from "../game.presenter";
@@ -10,18 +10,18 @@ import { GameViewModel } from "../models/game.view.model";
 describe('GameIntegration', () => {
     let gameController: GameController;
     let gameService: GameService;
-    let fakeRouterWrapper: FakeRouterWrapper;
+    let fakeRouterAdapter: FakeRouterAdapter;
     let gamePresenter: GamePresenter;
     let gameGateway: FakeGameAdapter
     let gameView: GameView;
 
     beforeEach(() => {
-        gameView = new GameView(new FakeSignalWrapper<GameViewModel>());
+        gameView = new GameView(new FakeSignalAdapter<GameViewModel>());
         gameGateway = new FakeGameAdapter();
         gamePresenter = new GamePresenter(gameView);
-        fakeRouterWrapper = new FakeRouterWrapper();
+        fakeRouterAdapter = new FakeRouterAdapter();
         gameService = new GameService(gamePresenter, gameGateway);
-        gameController = new GameController(gameService, fakeRouterWrapper);
+        gameController = new GameController(gameService, fakeRouterAdapter);
     });
 
     describe('init game', () => {
@@ -49,7 +49,7 @@ describe('GameIntegration', () => {
 
         it('should init the game with number of players from route param', () => {
             const numberOfPlayers = 6
-            fakeRouterWrapper.params['numberOfPlayers'] = numberOfPlayers.toString();
+            fakeRouterAdapter.params['numberOfPlayers'] = numberOfPlayers.toString();
 
             gameController.initGame();
 
@@ -126,11 +126,11 @@ describe('GameIntegration', () => {
 
     describe('navigate to home', () => {
         it('should navigate to home', () => {
-            expect(fakeRouterWrapper.lastNavigatedPath).toBeUndefined();
+            expect(fakeRouterAdapter.lastNavigatedPath).toBeUndefined();
 
             gameController.navigateToHome();
 
-            expect(fakeRouterWrapper.lastNavigatedPath).toEqual('');
+            expect(fakeRouterAdapter.lastNavigatedPath).toEqual('');
         });
     })
 

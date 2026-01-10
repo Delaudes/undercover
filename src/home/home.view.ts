@@ -1,9 +1,9 @@
-import { SignalWrapper } from "../signal/signal.wrapper";
+import { SignalGateway } from "../signal/signal.gateway";
 import { HomeViewModel } from "./models/home.view.model";
 
 
 export class HomeView {
-    constructor(public readonly viewModel: SignalWrapper<HomeViewModel>) {
+    constructor(public readonly viewModel: SignalGateway<HomeViewModel>) {
         this.viewModel.set({
             title: "Undercover",
             gameRules: [

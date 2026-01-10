@@ -1,7 +1,7 @@
 
 import { InjectionToken } from "@angular/core";
 import { ROUTER_TOKEN } from "../router/router.provider";
-import { AngularSignalWrapper } from "../signal/angular-signal.wrapper";
+import { AngularSignalAdapter } from "../signal/angular-signal.adapter";
 import { HomeController, IHomeController } from "./home.controller";
 import { HomePresenter } from "./home.presenter";
 import { HomeService } from "./home.service";
@@ -26,6 +26,6 @@ export const HOME_PROVIDER = [
     },
     {
         provide: HomeView,
-        useFactory: () => new HomeView(new AngularSignalWrapper<HomeViewModel>())
+        useFactory: () => new HomeView(new AngularSignalAdapter<HomeViewModel>())
     }
 ] 

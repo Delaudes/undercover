@@ -1,8 +1,8 @@
-import { SignalWrapper } from "../signal/signal.wrapper";
+import { SignalGateway } from "../signal/signal.gateway";
 import { GameViewModel, RoleViewModel } from "./models/game.view.model";
 
 export class GameView {
-    constructor(public readonly viewModel: SignalWrapper<GameViewModel>) {
+    constructor(public readonly viewModel: SignalGateway<GameViewModel>) {
         this.viewModel.set({
             title: "Undercover",
             revealWordButtonText: "Voir mon mot",

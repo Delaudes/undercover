@@ -1,8 +1,8 @@
 import { inject } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { RouterWrapper } from "./router.wrapper";
+import { RouterGateway } from "./router.gateway";
 
-export class AngularRouterWrapper implements RouterWrapper {
+export class AngularRouterAdapter implements RouterGateway {
     private readonly router = inject(Router);
     private readonly activatedRoute = inject(ActivatedRoute);
 
