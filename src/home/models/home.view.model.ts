@@ -6,4 +6,8 @@ export type HomeViewModel = {
     numberOfPlayers: number;
     canAddPlayer: boolean;
     canRemovePlayer: boolean;
+
+    isLoadingOnlineGame: boolean;
+    isErrorOnlineGame: boolean;
+    onlineGameErrorMessage: string;
 }

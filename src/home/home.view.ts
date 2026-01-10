@@ -18,6 +18,10 @@ export class HomeView {
             numberOfPlayers: 4,
             canAddPlayer: true,
             canRemovePlayer: true,
+
+            isLoadingOnlineGame: false,
+            isErrorOnlineGame: false,
+            onlineGameErrorMessage: "",
         })
     }
 

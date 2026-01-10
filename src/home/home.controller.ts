@@ -6,6 +6,7 @@ export interface IHomeController {
     addPlayer(): void;
     removePlayer(): void;
     navigateToGame(numberOfPlayers: number): void;
+    createOnlineGame(numberOfPlayers: number): Promise<void>;
 }
 
 export class HomeController implements IHomeController {
@@ -21,6 +22,14 @@ export class HomeController implements IHomeController {
 
     navigateToGame(numberOfPlayers: number): void {
         this.routerGateway.navigate(Path.Game.replace(':numberOfPlayers', numberOfPlayers.toString()));
+    }
+
+    async createOnlineGame(numberOfPlayers: number): Promise<void> {
+        const idGame = crypto.randomUUID();
+        const success = await this.homeService.createOnlineGame(idGame, numberOfPlayers);
+        if (success) {
+            this.routerGateway.navigate(Path.OnlineGame.replace(':idGame', idGame).replace(':numberOfPlayers', numberOfPlayers.toString()));
+        }
     }
 }
 

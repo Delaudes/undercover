@@ -24,4 +24,23 @@ export class HomePresenter {
         })
     }
 
+    startLoadingOnlineGame(): void {
+        this.homeView.update({
+            isLoadingOnlineGame: true,
+            isErrorOnlineGame: false,
+        });
+    }
+
+    stopLoadingOnlineGame(): void {
+        this.homeView.update({
+            isLoadingOnlineGame: false,
+        });
+    }
+
+    presentErrorOnlineGame(): void {
+        this.homeView.update({
+            isErrorOnlineGame: true,
+            onlineGameErrorMessage: "Une erreur est survenue lors de la création de la partie en ligne. Veuillez réessayer.",
+        });
+    }
 }
