@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { ONLINE_GAME_CONTROLLER_TOKEN } from './online-game.provider';
 import { OnlineGameView } from './online-game.view';
 
@@ -8,11 +8,15 @@ import { OnlineGameView } from './online-game.view';
     templateUrl: './online-game.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OnlineGameComponent {
+export class OnlineGameComponent implements OnInit {
     private readonly onlineGameView = inject(OnlineGameView);
     protected readonly onlineGameController = inject(ONLINE_GAME_CONTROLLER_TOKEN);
 
     protected get viewModel() {
         return this.onlineGameView.viewModel.get();
+    }
+
+    ngOnInit(): void {
+        this.onlineGameController.loadOnlineGame();
     }
 }

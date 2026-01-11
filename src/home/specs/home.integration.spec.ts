@@ -1,3 +1,4 @@
+import { FakeOnlineGameAdapter } from "../../online-game/adapters/fake.online-game.adapter";
 import { FakeRouterAdapter } from "../../router/fake-router.adapter";
 import { FakeSignalAdapter } from "../../signal/fake-signal.adapter";
 import { HomeController } from "../home.controller";
@@ -12,12 +13,14 @@ describe('HomeIntegration', () => {
     let fakeRouterAdapter: FakeRouterAdapter
     let homePresenter: HomePresenter;
     let homeView: HomeView;
+    let fakeOnlineGameAdapter: FakeOnlineGameAdapter;
 
     beforeEach(() => {
         homeView = new HomeView(new FakeSignalAdapter<HomeViewModel>());
+        fakeOnlineGameAdapter = new FakeOnlineGameAdapter();
         homePresenter = new HomePresenter(homeView);
         fakeRouterAdapter = new FakeRouterAdapter();
-        homeService = new HomeService(homePresenter);
+        homeService = new HomeService(homePresenter, fakeOnlineGameAdapter);
         homeController = new HomeController(homeService, fakeRouterAdapter);
     });
 
